@@ -1,0 +1,30 @@
+{% if status %}
+  <div id="simple-alert" class="alert
+      {% if color == 'red' %}
+        alert-danger
+      {% endif %}
+      {% if color == 'blue' %}
+        alert-info
+      {% endif %}
+      {% if color == 'green' %}
+        alert-success
+      {% endif %}
+    fade in text-center hide" role="alert">
+    {% if closable %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    {% endif %}
+    <span>
+      {{ text1 }}
+    </span>
+    {% if link %}
+      <a href="{{ link }}" class="alert-link">
+        {{ linktext }}
+      </a>
+    {% endif %}
+    <span>
+      {{ text2 }}
+    </span>
+  </div>
+{% endif %}

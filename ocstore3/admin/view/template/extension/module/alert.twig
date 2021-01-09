@@ -1,0 +1,124 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-module" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
+      </div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module" class="form-horizontal">
+          <div class="form-group">
+            <div class="row">
+              <label class="col-sm-2 control-label" for="input-status">{{ text_status }}</label>
+              <div class="col-sm-5">
+                <select name="status" id="input-status" class="form-control">
+                  {% if status %}
+                  <option value="1" selected="selected">{{ text_enabled }}</option>
+                  <option value="0">{{ text_disabled }}</option>
+                  {% else %}
+                  <option value="1">{{ text_enabled }}</option>
+                  <option value="0" selected="selected">{{ text_disabled }}</option>
+                  {% endif %}
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <label class="col-sm-2 control-label" for="input-color">
+                <br>
+                {{ text_alert_color }}
+              </label>
+              <div class="col-sm-5">
+                <div>
+                  <input type="radio" id="choice1"
+                   name="color" value="red" {% if color == 'red' %} checked {% endif %}>
+                  <label for="choice1">{{ text_red }}</label>
+                  <br>
+                  <input type="radio" id="choice2"
+                   name="color" value="green" {% if color == 'green' %} checked {% endif %}>
+                  <label for="choice2">{{ text_green }}</label>
+                  <br>
+                  <input type="radio" id="choice3"
+                   name="color" value="blue" {% if color == 'blue' %} checked {% endif %}>
+                  <label for="choice3">{{ text_blue }}</label>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <label class="col-sm-2 control-label" for="input-home-only">{{ text_show }}</label>
+              <div class="col-sm-5">
+                <select name="home_only" id="input-home-only" class="form-control">
+                  {% if home_only %}
+                  <option value="1" selected="selected">{{ text_home_only }}</option>
+                  <option value="0">{{ text_everywhere }}</option>
+                  {% else %}
+                  <option value="1">{{ text_home_only }}</option>
+                  <option value="0" selected="selected">{{ text_everywhere }}</option>
+                  {% endif %}
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <label class="col-sm-2 control-label" for="alert-text1">{{ text_alert_text1 }}</label>
+              <div class="col-sm-5">
+                <input name="text1" id="alert-text1" value="{{ text1 }}" style="width: 100%;">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <label class="col-sm-2 control-label" for="alert-linktext">{{ text_alert_linktext }}</label>
+              <div class="col-sm-2">
+                <input name="linktext" id="alert-linktext" value="{{ linktext }}" style="width: 100%;">
+              </div>
+              <label class="col-sm-1 control-label" for="alert-link">{{ text_alert_link }}</label>
+              <div class="col-sm-2">
+                <input name="link" id="alert-link" value="{{ link }}" style="width: 100%;">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <label class="col-sm-2 control-label" for="alert-text2">{{ text_alert_text2 }}</label>
+              <div class="col-sm-5">
+                <input name="text2" id="alert-text2" value="{{ text2 }}" style="width: 100%;">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <label class="col-sm-2 control-label" for="alert_closable">{{ text_alert_closable }}</label>
+              <div class="col-sm-5">
+                <select name="closable" id="alert_closable" class="form-control">
+                  {% if closable %}
+                  <option value="1" selected="selected">{{ text_yes }}</option>
+                  <option value="0">{{ text_no }}</option>
+                  {% else %}
+                  <option value="1">{{ text_yes }}</option>
+                  <option value="0" selected="selected">{{ text_no }}</option>
+                  {% endif %}
+                </select>
+              </div>
+            </div>
+            <br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}

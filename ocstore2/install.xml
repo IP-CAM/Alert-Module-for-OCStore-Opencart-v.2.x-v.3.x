@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+  <name>Simple alert module</name>
+  <code>Simple alert module</code>
+  <version>0.1</version>
+  <author>f1del</author>
+  <link></link>
+  <file path="catalog/controller/common/header.php">
+    <operation>
+      <search><![CDATA[index() {]]></search>
+      <add position="after"><![CDATA[
+      /* Simple alert START */
+      $data['alert'] = $this->load->controller('extension/module/alert');
+      /* Simple alert END */
+      ]]></add>
+    </operation>
+  </file>
+	<file path="catalog/view/theme/*/template/common/header.tpl">
+    <operation>
+      <search><![CDATA[<header>]]></search>
+      <add position="after"><![CDATA[
+      <!-- Simple alert START -->
+      <?php echo $alert; ?>
+      <!-- Simple alert END -->
+      ]]></add>
+    </operation>
+  </file>
+</modification>
