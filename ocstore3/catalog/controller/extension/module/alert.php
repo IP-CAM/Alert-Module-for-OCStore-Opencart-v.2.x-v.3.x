@@ -17,7 +17,6 @@ class ControllerExtensionModuleAlert extends Controller
             return null;
         }
 
-        $this->document->addScript('catalog/view/javascript/jquery/cookie/jquery.cookie.min.js');
         $this->document->addScript('catalog/view/javascript/alert/alert.js');
 
         // check this is homepage
